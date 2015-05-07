@@ -1,0 +1,32 @@
+<?php
+// module/Album/view/album/album/index.phtml:
+$title = 'My albums';
+$this->headTitle($title);
+?>
+<h1><?php echo $this->escapeHtml($title); ?></h1>
+<p><a href="/<?php echo $this->url('desa', array(
+        'action'=>'addAuto'));?>">Add new auto</a></p>
+<table class="table">
+<tr>
+    <th>Plaka</th>
+    <th>Nereden</th>
+    <th>Nereye</th>
+    <th>Yük</th>
+    
+    <th>&nbsp;</th>
+</tr>
+<?php foreach($albums as $desa) : ?>
+<tr>
+    <td><?php echo $this->escapeHtml($desa->PLATE);?></td>
+    <td><?php echo $this->escapeHtml($desa->DESTINATION);?></td>
+    <td><?php echo $this->escapeHtml($desa->DEPARTURE);?></td>
+    <td><?php echo $this->escapeHtml($desa->CARRY);?></td>
+    <td>
+        <a href="/<?php echo $this->url('desa',
+            array('action'=>'edit', 'id' => $desa->id));?>">Edit</a>
+        <a href="/<?php echo $this->url('desa',
+            array('action'=>'delete', 'id' => $desa->id));?>">Delete</a>
+    </td>
+</tr>
+<?php endforeach; ?>
+</table>

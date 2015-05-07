@@ -1,0 +1,16 @@
+<?php
+$title = 'Add new auto';
+$this->headTitle($title);
+?>
+<h1><?php echo $this->escapeHtml($title); ?></h1>
+<?php
+$form = $this->form;
+$form->setAttribute('action', $this->url('desa', array('action' => 'addAuto')));
+$form->prepare();
+echo $this->form()->openTag($form);
+echo $this->formHidden($form->get('id'));
+echo $this->formRow($form->get('PLATE'));
+echo $this->formRow($form->get('DESTINATION'));
+echo $this->formSubmit($form->get('DEPARTURE'));
+echo $this->formSubmit($form->get('CARRY'));
+echo $this->form()->closeTag();
